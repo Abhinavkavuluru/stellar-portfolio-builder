@@ -5,9 +5,6 @@ import {
   Code, 
   Database, 
   Brain, 
-  Eye, 
-  GitBranch, 
-  Settings 
 } from 'lucide-react';
 
 const skillCategories = [
