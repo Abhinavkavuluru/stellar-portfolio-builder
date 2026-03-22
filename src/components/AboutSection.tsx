@@ -57,20 +57,19 @@ const AboutSection = () => {
             className="space-y-6"
           >
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm a <span className="text-foreground font-medium">Software Engineer</span> with a strong focus on 
-              <span className="text-primary"> Artificial Intelligence</span>, 
-              <span className="text-primary"> Machine Learning</span>, and 
-              <span className="text-primary"> Full Stack Development</span>. Currently pursuing my B.E. in 
-              Information Technology at MVSRC Engineering College with a CGPA of 9.19.
+              I'm a <span className="text-foreground font-medium">Software Engineer</span> experienced in building scalable 
+              <span className="text-primary"> eCommerce and ERP integrations</span>, with a focus on 
+              <span className="text-primary"> Shopify-based B2B platforms</span>. B.E. in 
+              Information Technology from MVSREC with a CGPA of 9.19.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              As an <span className="text-foreground font-medium">AI Intern at i95Dev</span>, I'm contributing to 
-              real-world projects in an agile environment, building bridges between platforms like Shopify and Laravel, 
-              developing custom n8n nodes for eCommerce automation, and creating AI-powered chatbots using MCP architecture.
+              As a <span className="text-foreground font-medium">Software Engineer I at i95Dev</span>, I design and implement 
+              scalable bidirectional integrations between Shopify and B2B portals, develop asynchronous message queue systems 
+              for real-time data synchronization, and build AI agents using Model Context Protocol (MCP) for automated Shopify operations.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              My expertise spans from building neural networks for <span className="text-foreground font-medium">brain tumor detection</span> to 
-              creating full-stack platforms that connect farmers with buyers. I thrive on solving complex problems 
+              My expertise spans from building <span className="text-foreground font-medium">AI-driven automation solutions</span> and 
+              deep learning systems for medical imaging to full-stack platforms. I thrive on solving complex problems 
               and turning innovative ideas into impactful software solutions.
             </p>
 
@@ -78,7 +77,7 @@ const AboutSection = () => {
             <div className="pt-4">
               <p className="text-sm text-muted-foreground mb-3">Primary Technologies:</p>
               <div className="flex flex-wrap gap-2">
-                {['Python', 'TensorFlow', 'React', 'Flask', 'MySQL', 'Docker'].map((tech) => (
+                {['Python', 'JavaScript', 'React', 'PostgreSQL', 'Shopify', 'GraphQL', 'Docker'].map((tech) => (
                   <span key={tech} className="skill-tag">
                     {tech}
                   </span>

@@ -29,7 +29,7 @@ const HeroSection = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
             </span>
-            <span className="text-sm text-muted-foreground">Currently working as AI Intern at i95Dev</span>
+            <span className="text-sm text-muted-foreground">Software Engineer I at i95Dev</span>
           </motion.div>
 
           {/* Main Heading */}
@@ -53,9 +53,9 @@ const HeroSection = () => {
             <span className="font-mono text-primary">&lt;</span>
             <span>Software Engineer</span>
             <span className="text-primary">/</span>
-            <span>AI & ML Specialist</span>
+            <span>eCommerce & ERP Integrations</span>
             <span className="text-primary">/</span>
-            <span>Full Stack Developer</span>
+            <span>AI & Full Stack Developer</span>
             <span className="font-mono text-primary">/&gt;</span>
           </motion.div>
 
@@ -77,8 +77,8 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            Building scalable applications with expertise in Python, Machine Learning, and modern web technologies. 
-            Passionate about creating impactful software solutions that solve real-world problems.
+            Software Engineer experienced in building scalable eCommerce and ERP integrations, with a focus on 
+            Shopify-based B2B platforms. Proficient in API development, asynchronous data processing, and AI-driven automation solutions.
           </motion.p>
 
           {/* CTA Buttons */}

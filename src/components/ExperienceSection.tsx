@@ -6,26 +6,22 @@ import { Briefcase, Calendar, MapPin, ExternalLink } from 'lucide-react';
 const experiences = [
   {
     company: 'i95Dev',
-    role: 'AI Intern',
+    role: 'Software Engineer I',
     duration: 'July 2025 – Present',
-    location: 'Remote / Hybrid',
-    type: 'Internship',
-    description: 'Contributing to real-world AI and eCommerce automation projects in an agile environment.',
+    location: 'Hyderabad, India',
+    type: 'Full-Time',
+    description: 'Building scalable eCommerce and ERP integrations with a focus on Shopify-based B2B platforms, API development, and AI-driven automation.',
     projects: [
       {
-        name: 'Shopify B2B Portal',
-        description: 'Developed a bridge between Shopify and Laravel for seamless data synchronization. Designed and implemented backend architecture, handled Shopify API integrations, and ensured efficient data flow between systems.',
-      },
-      {
-        name: 'n8n Custom Nodes',
-        description: 'Built two custom nodes for eCommerce and ERP platforms (Magento and Business Central). Utilized Swagger UI and company APIs from Cloud i95Dev to automate data transfer between platforms. Currently enhancing the project with AI-driven customization capabilities for dynamic data handling through prompts.',
+        name: 'i95dev B2B Portal',
+        description: 'Designed and implemented a scalable bidirectional integration between Shopify and a Laravel-based B2B portal. Enabled the platform to act as a centralized hub for managing e-commerce and ERP data across products, orders, companies, users, customers, and pricing. Developed asynchronous message queue systems for reliable real-time data synchronization using PostgreSQL and MySQL.',
       },
       {
         name: 'Shopify AI Agent',
-        description: 'Developing a chatbot using MCP architecture to perform Shopify tasks through natural language prompts.',
+        description: 'Built a Shopify AI agent using Model Context Protocol (MCP) to convert natural language inputs into automated Shopify operations. Used the Shopify GraphQL API for product creation, order management, inventory updates, and store configuration. Implemented LLM orchestration with structured tool schemas for automated backend task execution.',
       },
     ],
-    technologies: ['Python', 'Shopify API', 'Laravel', 'n8n', 'MCP Architecture', 'AI/ML'],
+    technologies: ['Python', 'Shopify GraphQL API', 'Laravel', 'PostgreSQL', 'MySQL', 'MCP', 'LLMs', 'Message Queues'],
   },
 ];
 
