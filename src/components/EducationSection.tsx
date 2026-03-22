@@ -11,7 +11,7 @@ const education = [
     grade: 'CGPA: 9.19',
     duration: 'Graduation: June 2025',
     location: 'Hyderabad, Telangana',
-    current: true,
+    current: false,
   },
   {
     institution: 'Sri Chaitanya Junior Kalasala',
@@ -34,12 +34,6 @@ const education = [
 ];
 
 const certifications = [
-  {
-    name: 'Accenture Primer Training',
-    issuer: 'Accenture',
-    duration: 'Oct 2025 - Nov 2025',
-    type: 'Training Program',
-  },
   {
     name: 'AWS AI/ML Virtual Internship',
     issuer: 'AICTE-Eduskills',

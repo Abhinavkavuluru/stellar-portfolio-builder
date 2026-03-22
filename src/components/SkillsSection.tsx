@@ -5,45 +5,28 @@ import {
   Code, 
   Database, 
   Brain, 
-  Eye, 
-  GitBranch, 
-  Settings 
 } from 'lucide-react';
 
 const skillCategories = [
   {
     icon: Code,
-    title: 'Full Stack & Databases',
+    title: 'Programming & Web Development',
     description: 'Building end-to-end web applications',
-    skills: ['Python', 'JavaScript', 'C', 'HTML', 'CSS3', 'React.js', 'Node.js', 'Flask', 'MySQL'],
+    skills: ['Python', 'JavaScript', 'HTML', 'CSS', 'React.js', 'Node.js', 'Flask'],
     color: 'primary',
+  },
+  {
+    icon: Database,
+    title: 'Backend, Databases & Integrations',
+    description: 'APIs, data sync & eCommerce platforms',
+    skills: ['MySQL', 'PostgreSQL', 'REST APIs', 'GraphQL APIs', 'Async Processing', 'Message Queues', 'Shopify App Dev', 'PostHog'],
+    color: 'accent',
   },
   {
     icon: Brain,
-    title: 'Machine Learning & AI',
-    description: 'Developing intelligent systems',
-    skills: ['Scikit-learn', 'TensorFlow', 'Keras', 'PyTorch', 'LLMs', 'Gen AI', 'ML Algorithms'],
-    color: 'accent',
-  },
-  {
-    icon: Eye,
-    title: 'Deep Learning & Computer Vision',
-    description: 'Image processing & neural networks',
-    skills: ['CNNs', 'RNNs', 'Transformers', 'Image Processing', 'OpenCV'],
-    color: 'primary',
-  },
-  {
-    icon: GitBranch,
-    title: 'DevOps & Integrations',
-    description: 'CI/CD and deployment pipelines',
-    skills: ['Docker', 'GitHub Actions', 'CI/CD Pipelines', 'API Integrations'],
-    color: 'accent',
-  },
-  {
-    icon: Settings,
-    title: 'Developer Tools & Platforms',
-    description: 'Tools that power my workflow',
-    skills: ['Git', 'GitHub', 'VS Code', 'Jupyter Notebook', 'Google Colab', 'Power BI', 'Shopify App Development'],
+    title: 'Machine Learning, AI & DevOps',
+    description: 'Intelligent systems & deployment',
+    skills: ['Scikit-learn', 'TensorFlow', 'Keras', 'PyTorch', 'Deep Learning', 'LLMs & Gen AI', 'OpenCV', 'Docker', 'CI/CD', 'Git'],
     color: 'primary',
   },
 ];
