@@ -6,16 +6,16 @@ import { Github, ExternalLink, Folder, Star } from 'lucide-react';
 const projects = [
   {
     title: 'AgriConnect – Contract Farming Platform',
-    description: 'A web-based platform that facilitates secure agreements between farmers and buyers, bridging the gap in agricultural commerce.',
-    problem: 'Farmers often struggle to find reliable buyers and negotiate fair prices, while buyers lack access to verified contract farming options.',
-    solution: 'Built a comprehensive platform using Flask and MySQL that enables secure contract management, price negotiation tools, and agreement tracking.',
+    description: 'A blockchain-powered platform that facilitates secure, tamper-proof agreements between farmers and buyers using Ethereum smart contracts, bridging the gap in agricultural commerce.',
+    problem: 'Farmers often struggle to find reliable buyers and negotiate fair prices, and traditional contracts are prone to disputes due to lack of transparency and trust.',
+    solution: 'Built a decentralized platform using Flask, MySQL, and Ethereum smart contracts (Solidity) to enable trustless, immutable contract management, automated payment settlements, and transparent agreement tracking on the blockchain.',
     features: [
-      'Secure contract generation and management',
-      'Price negotiation dashboard',
+      'Ethereum smart contract–based agreement execution',
+      'Blockchain-powered tamper-proof transaction records',
+      'Price negotiation dashboard with on-chain settlement',
       'User authentication and role-based access',
-      'Transaction history and analytics',
     ],
-    technologies: ['Python', 'Flask', 'MySQL', 'HTML/CSS', 'JavaScript'],
+    technologies: ['Python', 'Flask', 'MySQL', 'Solidity', 'Ethereum', 'Web3', 'HTML/CSS', 'JavaScript'],
     github: 'https://github.com/Abhinavkavuluru',
     featured: true,
   },
