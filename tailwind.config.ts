@@ -103,8 +103,8 @@ export default {
           "50%": { transform: "translateY(-20px)" },
         },
         "glow-pulse": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(210 100% 60% / 0.3)" },
-          "50%": { boxShadow: "0 0 40px hsl(210 100% 60% / 0.5)" },
+          "0%, 100%": { boxShadow: "0 0 20px hsl(174 72% 42% / 0.3)" },
+          "50%": { boxShadow: "0 0 40px hsl(174 72% 42% / 0.5)" },
         },
       },
       animation: {
@@ -119,8 +119,8 @@ export default {
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "hero-gradient": "radial-gradient(ellipse at 50% 0%, hsl(210 100% 60% / 0.15) 0%, transparent 50%)",
-        "card-gradient": "linear-gradient(145deg, hsl(220 20% 8%) 0%, hsl(220 20% 5%) 100%)",
+        "hero-gradient": "radial-gradient(ellipse at 50% 0%, hsl(174 72% 42% / 0.14) 0%, transparent 55%)",
+        "card-gradient": "linear-gradient(145deg, hsl(218 38% 8%) 0%, hsl(220 45% 5%) 100%)",
       },
     },
   },

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, Mail, Download } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Mail, Download, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTheme } from '@/contexts/ThemeContext';
 
 const navLinks = [
   { href: '#about', label: 'About' },
@@ -14,6 +15,7 @@ const navLinks = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,6 +68,13 @@ const Navbar = () => {
             >
               <Linkedin className="w-5 h-5" />
             </a>
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary border border-transparent hover:border-border transition-all duration-200"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
             <a
               href="/Abhinav_Resume.pdf"
               download
@@ -123,6 +132,13 @@ const Navbar = () => {
                 >
                   <Linkedin className="w-5 h-5" />
                 </a>
+                <button
+                  onClick={toggleTheme}
+                  className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary border border-transparent hover:border-border transition-all duration-200"
+                  aria-label="Toggle theme"
+                >
+                  {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                </button>
                 <a
                   href="/Abhinav_Resume.pdf"
                   download
