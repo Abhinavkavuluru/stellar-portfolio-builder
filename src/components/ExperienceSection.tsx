@@ -1,7 +1,5 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Briefcase, Calendar, MapPin, ExternalLink } from 'lucide-react';
 
 const experiences = [
   {
@@ -30,104 +28,74 @@ const ExperienceSection = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="experience" className="section-padding relative overflow-hidden">
-      <div className="absolute top-1/2 left-0 w-1/3 h-1/2 bg-primary/5 rounded-full blur-3xl" />
-      
-      <div className="container-custom relative z-10" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto text-center mb-16"
-        >
-          <span className="text-primary font-mono text-sm mb-4 block">03. Experience</span>
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Professional{' '}
-            <span className="gradient-text">Journey</span>
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            Building real-world solutions and contributing to impactful projects
-          </p>
-        </motion.div>
+    <section id="experience" className="section-padding relative" ref={ref}>
+      <div className="container-custom">
+        <div className="grid lg:grid-cols-12 gap-16 items-start">
+          {/* Left label */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-3"
+          >
+            <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-primary">03 — Experience</span>
+            <div className="editorial-line mt-4" />
+          </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={exp.company}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="relative"
-            >
-              {/* Timeline Line */}
-              <div className="absolute left-0 top-0 bottom-0 w-px bg-border md:left-8" />
-              
-              {/* Timeline Dot */}
-              <div className="absolute left-0 top-8 w-4 h-4 rounded-full bg-primary border-4 border-background md:left-6 animate-glow-pulse" />
-
-              <div className="pl-8 md:pl-20">
-                {/* Header Card */}
-                <div className="card-elevated p-6 mb-6">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <Briefcase className="w-5 h-5 text-primary" />
-                        <h3 className="font-heading text-xl font-bold text-foreground">
-                          {exp.role}
-                        </h3>
-                        <span className="px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary rounded-full">
-                          {exp.type}
-                        </span>
-                      </div>
-                      <p className="text-lg text-primary font-medium">{exp.company}</p>
-                    </div>
-                    <div className="flex flex-col gap-1 text-sm text-muted-foreground">
-                      <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4" />
-                        <span>{exp.duration}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4" />
-                        <span>{exp.location}</span>
-                      </div>
-                    </div>
+          {/* Right content */}
+          <div className="lg:col-span-9 space-y-12">
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={exp.company}
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
+              >
+                {/* Header */}
+                <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 mb-6">
+                  <div>
+                    <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground">
+                      {exp.role}
+                    </h3>
+                    <p className="text-primary font-medium mt-1">{exp.company}</p>
                   </div>
-                  <p className="text-muted-foreground mb-4">{exp.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {exp.technologies.map((tech) => (
-                      <span key={tech} className="skill-tag text-xs">
-                        {tech}
-                      </span>
-                    ))}
+                  <div className="text-sm text-muted-foreground">
+                    <span>{exp.duration}</span>
+                    <span className="mx-2">·</span>
+                    <span>{exp.location}</span>
                   </div>
                 </div>
 
+                <p className="text-muted-foreground leading-[1.8] mb-8">{exp.description}</p>
+
+                {/* Tech strip */}
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {exp.technologies.map((tech) => (
+                    <span key={tech} className="tag-pill">{tech}</span>
+                  ))}
+                </div>
+
                 {/* Projects */}
-                <div className="space-y-4 mb-8">
-                  <h4 className="font-heading font-semibold text-foreground flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-primary"></span>
-                    Key Projects
-                  </h4>
+                <div className="space-y-6 pl-6 border-l-2 border-primary/20">
                   {exp.projects.map((project, pIndex) => (
                     <motion.div
                       key={project.name}
                       initial={{ opacity: 0, x: -20 }}
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.5, delay: 0.3 + pIndex * 0.1 }}
-                      className="card-elevated card-hover p-5 ml-4 border-l-2 border-primary/30"
+                      transition={{ duration: 0.6, delay: 0.3 + pIndex * 0.1 }}
                     >
-                      <h5 className="font-heading font-medium text-foreground mb-2">
+                      <h4 className="font-heading font-semibold text-foreground mb-2">
                         {project.name}
-                      </h5>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      </h4>
+                      <p className="text-sm text-muted-foreground leading-[1.8]">
                         {project.description}
                       </p>
                     </motion.div>
                   ))}
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
