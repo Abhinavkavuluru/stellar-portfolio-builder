@@ -1,63 +1,35 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { GraduationCap, Award, Calendar, MapPin, ExternalLink } from 'lucide-react';
 
 const education = [
   {
     institution: 'Maturi Venkata Subba Rao Engineering College',
-    degree: 'Bachelor of Engineering',
-    field: 'Information Technology',
+    degree: 'B.E. Information Technology',
     grade: 'CGPA: 9.19',
     duration: 'Graduation: June 2025',
     location: 'Hyderabad, Telangana',
-    current: false,
   },
   {
     institution: 'Sri Chaitanya Junior Kalasala',
-    degree: 'Intermediate',
-    field: 'Science (MPC)',
+    degree: 'Intermediate — Science (MPC)',
     grade: 'Marks: 958',
-    duration: 'Completed: June 2021',
+    duration: 'June 2021',
     location: 'Hyderabad, Telangana',
-    current: false,
   },
   {
     institution: 'Sri Chaitanya School',
-    degree: 'Schooling',
-    field: 'Secondary Education',
+    degree: 'Secondary Education',
     grade: 'CGPA: 10.0',
-    duration: 'Completed: April 2019',
+    duration: 'April 2019',
     location: 'Hyderabad, Telangana',
-    current: false,
   },
 ];
 
 const certifications = [
-  {
-    name: 'AWS AI/ML Virtual Internship',
-    issuer: 'AICTE-Eduskills',
-    duration: 'May 2023 – Jul 2023',
-    type: 'Virtual Internship',
-  },
-  {
-    name: 'Google AI/ML Virtual Internship',
-    issuer: 'AICTE-Eduskills',
-    duration: 'Apr 2024 – Jun 2024',
-    type: 'Virtual Internship',
-  },
-  {
-    name: 'AWS Data Analytics',
-    issuer: 'Amazon Web Services',
-    duration: 'Certification',
-    type: 'AWS Certification',
-  },
-  {
-    name: 'AWS Machine Learning',
-    issuer: 'Amazon Web Services',
-    duration: 'Certification',
-    type: 'AWS Certification',
-  },
+  { name: 'AWS AI/ML Virtual Internship', issuer: 'AICTE-Eduskills', period: 'May – Jul 2023' },
+  { name: 'Google AI/ML Virtual Internship', issuer: 'AICTE-Eduskills', period: 'Apr – Jun 2024' },
+  { name: 'AWS Data Analytics', issuer: 'Amazon Web Services', period: 'Certification' },
+  { name: 'AWS Machine Learning', issuer: 'Amazon Web Services', period: 'Certification' },
 ];
 
 const EducationSection = () => {
@@ -65,127 +37,64 @@ const EducationSection = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="education" className="section-padding relative overflow-hidden">
-      <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-accent/5 rounded-full blur-3xl" />
-      
-      <div className="container-custom relative z-10" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto text-center mb-16"
-        >
-          <span className="text-primary font-mono text-sm mb-4 block">05. Education & Certifications</span>
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Academic{' '}
-            <span className="gradient-text">Background</span>
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            My educational journey and professional certifications
-          </p>
-        </motion.div>
+    <section id="education" className="section-padding relative" ref={ref}>
+      <div className="container-custom">
+        <div className="grid lg:grid-cols-12 gap-16 items-start">
+          {/* Left label */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-3"
+          >
+            <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-primary">05 — Education</span>
+            <div className="editorial-line mt-4" />
+          </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Education Timeline */}
-          <div>
-            <motion.h3
-              initial={{ opacity: 0, x: -20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.5 }}
-              className="font-heading text-xl font-semibold mb-8 flex items-center gap-3"
-            >
-              <GraduationCap className="w-6 h-6 text-primary" />
-              Education
-            </motion.h3>
-            
-            <div className="space-y-6">
+          {/* Right content */}
+          <div className="lg:col-span-9">
+            {/* Education */}
+            <div className="space-y-0 mb-16">
               {education.map((edu, index) => (
                 <motion.div
                   key={edu.institution}
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative pl-8"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="border-t border-border py-8 grid md:grid-cols-2 gap-4"
                 >
-                  {/* Timeline */}
-                  <div className="absolute left-0 top-0 bottom-0 w-px bg-border" />
-                  <div className={`absolute left-0 top-2 w-2 h-2 rounded-full -translate-x-1/2 ${
-                    edu.current ? 'bg-primary animate-pulse' : 'bg-muted-foreground'
-                  }`} />
-
-                  <div className="card-elevated card-hover p-5">
-                    <div className="flex items-start justify-between gap-4 mb-2">
-                      <div>
-                        <h4 className="font-heading font-semibold text-foreground">
-                          {edu.institution}
-                        </h4>
-                        <p className="text-primary font-medium">{edu.degree} in {edu.field}</p>
-                      </div>
-                      {edu.current && (
-                        <span className="px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary rounded-full">
-                          Current
-                        </span>
-                      )}
-                    </div>
-                    <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-                      <span className="flex items-center gap-1">
-                        <Award className="w-4 h-4" />
-                        {edu.grade}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
-                        {edu.duration}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <MapPin className="w-4 h-4" />
-                        {edu.location}
-                      </span>
-                    </div>
+                  <div>
+                    <h3 className="font-heading font-semibold text-foreground">{edu.institution}</h3>
+                    <p className="text-primary text-sm mt-1">{edu.degree}</p>
+                  </div>
+                  <div className="flex flex-col md:items-end gap-1 text-sm text-muted-foreground">
+                    <span className="font-medium text-foreground">{edu.grade}</span>
+                    <span>{edu.duration}</span>
+                    <span>{edu.location}</span>
                   </div>
                 </motion.div>
               ))}
             </div>
-          </div>
 
-          {/* Certifications */}
-          <div>
-            <motion.h3
-              initial={{ opacity: 0, x: 20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.5 }}
-              className="font-heading text-xl font-semibold mb-8 flex items-center gap-3"
+            {/* Certifications */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <Award className="w-6 h-6 text-accent" />
-              Certifications & Courses
-            </motion.h3>
-
-            <div className="space-y-4">
-              {certifications.map((cert, index) => (
-                <motion.div
-                  key={cert.name}
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="card-elevated card-hover p-5"
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <h4 className="font-heading font-semibold text-foreground mb-1">
-                        {cert.name}
-                      </h4>
-                      <p className="text-sm text-muted-foreground">{cert.issuer}</p>
-                    </div>
-                    <span className="px-2 py-0.5 text-xs font-medium bg-accent/10 text-accent rounded-full whitespace-nowrap">
-                      {cert.type}
-                    </span>
+              <h3 className="font-heading text-sm font-semibold uppercase tracking-[0.1em] text-foreground mb-6">
+                Certifications
+              </h3>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {certifications.map((cert) => (
+                  <div key={cert.name} className="card-editorial p-5">
+                    <h4 className="font-heading text-sm font-semibold text-foreground mb-1">{cert.name}</h4>
+                    <p className="text-xs text-muted-foreground">{cert.issuer}</p>
+                    <p className="text-xs text-primary mt-2">{cert.period}</p>
                   </div>
-                  <p className="text-xs text-muted-foreground mt-2 flex items-center gap-1">
-                    <Calendar className="w-3 h-3" />
-                    {cert.duration}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>

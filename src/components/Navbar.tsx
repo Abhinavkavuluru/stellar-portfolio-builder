@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, Mail, Download, Sun, Moon } from 'lucide-react';
+import { Menu, X, Download, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '@/contexts/ThemeContext';
 
@@ -18,9 +18,7 @@ const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -29,112 +27,83 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-background/80 backdrop-blur-xl border-b border-border' : 'bg-transparent'
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? 'bg-background/90 backdrop-blur-2xl border-b border-border' : 'bg-transparent'
       }`}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="font-heading text-xl font-bold gradient-text">
-            Abhinav<span className="text-primary">.</span>
+          <a href="#" className="font-heading text-lg font-bold tracking-tight text-foreground">
+            AK<span className="text-primary">.</span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
-              <a key={link.href} href={link.href} className="nav-link text-sm font-medium">
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-[13px] font-medium uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300"
+              >
                 {link.label}
               </a>
             ))}
           </div>
 
-          {/* Social Links & Resume */}
-          <div className="hidden md:flex items-center gap-4">
-            <a
-              href="https://github.com/Abhinavkavuluru"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <Github className="w-5 h-5" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/abhinav-kavuluru-5147482a1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <Linkedin className="w-5 h-5" />
-            </a>
+          {/* Actions */}
+          <div className="hidden md:flex items-center gap-3">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary border border-transparent hover:border-border transition-all duration-200"
+              className="p-2.5 text-muted-foreground hover:text-foreground transition-colors duration-300"
               aria-label="Toggle theme"
             >
-              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
             <a
               href="/Abhinav_Resume.pdf"
               download
-              className="btn-primary text-sm"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-[13px] font-medium uppercase tracking-[0.1em] bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-300"
             >
-              <Download className="w-4 h-4" />
+              <Download className="w-3.5 h-3.5" />
               Resume
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-foreground"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {/* Mobile */}
+          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden p-2 text-foreground">
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border"
+            className="md:hidden bg-background border-b border-border"
           >
-            <div className="container-custom py-6 flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
+            <div className="container-custom py-8 flex flex-col gap-6">
+              {navLinks.map((link, i) => (
+                <motion.a
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-lg font-medium text-foreground hover:text-primary transition-colors"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                  className="text-2xl font-heading font-semibold text-foreground"
                 >
                   {link.label}
-                </a>
+                </motion.a>
               ))}
-              <div className="flex items-center gap-4 pt-4 border-t border-border">
-                <a
-                  href="https://github.com/Abhinavkavuluru"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Github className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/abhinav-kavuluru-5147482a1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
+              <div className="flex items-center gap-4 pt-6 border-t border-border">
                 <button
                   onClick={toggleTheme}
-                  className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary border border-transparent hover:border-border transition-all duration-200"
+                  className="p-2 text-muted-foreground hover:text-foreground transition-colors"
                   aria-label="Toggle theme"
                 >
                   {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
@@ -142,7 +111,7 @@ const Navbar = () => {
                 <a
                   href="/Abhinav_Resume.pdf"
                   download
-                  className="btn-primary text-sm ml-auto"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium bg-primary text-primary-foreground ml-auto"
                 >
                   <Download className="w-4 h-4" />
                   Resume

@@ -1,33 +1,18 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { 
-  Code, 
-  Database, 
-  Brain, 
-} from 'lucide-react';
 
 const skillCategories = [
   {
-    icon: Code,
-    title: 'Programming & Web Development',
-    description: 'Building end-to-end web applications',
-    skills: ['Python', 'JavaScript', 'HTML', 'CSS', 'React.js', 'Node.js', 'Flask'],
-    color: 'primary',
+    title: 'Languages & Frontend',
+    skills: ['Python', 'JavaScript', 'HTML', 'CSS', 'React.js', 'Node.js'],
   },
   {
-    icon: Database,
-    title: 'Backend, Databases & Integrations',
-    description: 'APIs, data sync & eCommerce platforms',
-    skills: ['MySQL', 'PostgreSQL', 'REST APIs', 'GraphQL APIs', 'Async Processing', 'Message Queues', 'Shopify App Dev', 'PostHog'],
-    color: 'accent',
+    title: 'Backend & Integrations',
+    skills: ['Flask', 'REST APIs', 'GraphQL', 'PostgreSQL', 'MySQL', 'Shopify App Dev', 'Message Queues', 'PostHog'],
   },
   {
-    icon: Brain,
-    title: 'Machine Learning, AI & DevOps',
-    description: 'Intelligent systems & deployment',
-    skills: ['Scikit-learn', 'TensorFlow', 'Keras', 'PyTorch', 'Deep Learning', 'LLMs & Gen AI', 'OpenCV', 'Docker', 'CI/CD', 'Git'],
-    color: 'primary',
+    title: 'AI / ML & DevOps',
+    skills: ['TensorFlow', 'PyTorch', 'Keras', 'Scikit-learn', 'Deep Learning', 'LLMs & Gen AI', 'OpenCV', 'Docker', 'CI/CD', 'Git'],
   },
 ];
 
@@ -36,77 +21,49 @@ const SkillsSection = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="skills" className="section-padding relative bg-secondary/20">
-      <div className="absolute inset-0 opacity-[0.02]" style={{
-        backgroundImage: `radial-gradient(hsl(var(--foreground)) 1px, transparent 1px)`,
-        backgroundSize: '30px 30px',
-      }} />
+    <section id="skills" className="section-padding relative overflow-hidden" ref={ref}>
+      {/* Background accent */}
+      <div className="absolute top-0 left-0 w-1/3 h-full bg-primary/[0.02]" />
 
-      <div className="container-custom relative z-10" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto text-center mb-16"
-        >
-          <span className="text-primary font-mono text-sm mb-4 block">02. Skills & Technologies</span>
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            My Technical{' '}
-            <span className="gradient-text">Arsenal</span>
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            A comprehensive toolkit spanning AI/ML, full-stack development, and DevOps
-          </p>
-        </motion.div>
+      <div className="container-custom relative z-10">
+        <div className="grid lg:grid-cols-12 gap-16 items-start">
+          {/* Left label */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-3"
+          >
+            <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-primary">02 — Skills</span>
+            <div className="editorial-line mt-4" />
+            <p className="text-sm text-muted-foreground mt-6 leading-relaxed">
+              A comprehensive toolkit spanning full-stack development, AI/ML, and cloud infrastructure.
+            </p>
+          </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((category, index) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="card-elevated card-hover p-6"
-            >
-              <div className={`w-12 h-12 rounded-lg bg-${category.color}/10 flex items-center justify-center mb-4`}>
-                <category.icon className={`w-6 h-6 text-${category.color}`} />
-              </div>
-              <h3 className="font-heading text-lg font-semibold text-foreground mb-2">
-                {category.title}
-              </h3>
-              <p className="text-sm text-muted-foreground mb-4">{category.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
-                  <span key={skill} className="skill-tag text-xs">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+          {/* Right: Skill blocks */}
+          <div className="lg:col-span-9 space-y-12">
+            {skillCategories.map((category, catIndex) => (
+              <motion.div
+                key={category.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: catIndex * 0.15 }}
+              >
+                <h3 className="font-heading text-sm font-semibold uppercase tracking-[0.1em] text-foreground mb-5">
+                  {category.title}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill) => (
+                    <span key={skill} className="tag-pill">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
-
-        {/* Stats Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
-        >
-          {[
-            { number: '9.19', label: 'CGPA' },
-            { number: '4+', label: 'Major Projects' },
-            { number: '3+', label: 'Certifications' },
-            { number: '5+', label: 'Technologies' },
-          ].map((stat, index) => (
-            <div key={stat.label} className="text-center p-6 card-elevated">
-              <div className="font-heading text-3xl md:text-4xl font-bold gradient-text mb-2">
-                {stat.number}
-              </div>
-              <div className="text-sm text-muted-foreground">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );
