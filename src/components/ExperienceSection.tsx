@@ -8,18 +8,18 @@ const experiences = [
     duration: 'July 2025 – Present',
     location: 'Hyderabad, India',
     type: 'Full-Time',
-    description: 'Building scalable eCommerce and ERP integrations with a focus on Shopify-based B2B platforms, API development, and AI-driven automation.',
+    description: 'Building AI-powered and eCommerce products end to end, from database design and APIs to user interfaces, third-party integrations and deployment.',
     projects: [
       {
-        name: 'i95dev B2B Portal',
-        description: 'Designed and implemented a scalable bidirectional integration between Shopify and a Laravel-based B2B portal. Enabled the platform to act as a centralized hub for managing e-commerce and ERP data across products, orders, companies, users, customers, and pricing. Developed asynchronous message queue systems for reliable real-time data synchronization using PostgreSQL and MySQL.',
+        name: 'AI Diligence & Audit Platform (Client: GateCity Advisory)',
+        description: 'Built the Media Audit module end to end: ledger import, statistical sampling (random, top-value, monetary-unit), test design, evidence-linked results, client request lists and PDF reports. Developed an AI audit assistant using LLM function calling, where every AI suggestion is confirmed by a user before data changes, and an AI test designer that turns plain-English audit checks into runnable flowchart tests. Built document Q&A (RAG) with hybrid vector and keyword search that highlights the exact answer on the source page, automatic filing of AI-classified documents with a human review queue, and Microsoft Entra ID single sign-on with role-based access. Cut the audit page load from 12s to 1.3s.',
       },
       {
-        name: 'Shopify AI Agent',
-        description: 'Built a Shopify AI agent using Model Context Protocol (MCP) to convert natural language inputs into automated Shopify operations. Used the Shopify GraphQL API for product creation, order management, inventory updates, and store configuration. Implemented LLM orchestration with structured tool schemas for automated backend task execution.',
+        name: 'B2B Commerce Platform: Shopify App & B2B Portal',
+        description: 'Built two-way sync between Shopify, the B2B portal and ERPs (Dynamics 365 Business Central, NetSuite) for products, orders, companies, customers, pricing and invoices using queues with retries. Built the B2B pricing engine (price lists, tier and volume pricing, customer-group discounts) shown on the storefront through a Shopify theme app extension, plus B2B checkout with purchase orders and credit-limit checks, multi-currency support, subscription billing and merchant onboarding. Moved the Shopify integration from REST to GraphQL, cutting API calls for 250 orders from 250 to 3, and merged two databases into one shared MySQL schema.',
       },
     ],
-    technologies: ['Python', 'Shopify GraphQL API', 'Laravel', 'PostgreSQL', 'MySQL', 'MCP', 'LLMs', 'Message Queues'],
+    technologies: ['Python', 'FastAPI', 'TypeScript', 'Next.js', 'PostgreSQL', 'pgvector', 'Claude API', 'RAG', 'Node.js', 'React Router', 'Shopify GraphQL API', 'MySQL', 'Prisma'],
   },
 ];
 
@@ -38,7 +38,7 @@ const ExperienceSection = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-3"
           >
-            <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-primary">03 — Experience</span>
+            <span className="text-sm font-medium uppercase tracking-[0.2em] text-primary">03 — Experience</span>
             <div className="editorial-line mt-4" />
           </motion.div>
 

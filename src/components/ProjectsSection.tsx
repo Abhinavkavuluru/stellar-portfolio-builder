@@ -28,7 +28,7 @@ const projects = [
     number: '02',
   },
   {
-    title: 'Underwater Restore',
+    title: 'Underwater Restoration',
     subtitle: 'Image Restoration AI',
     description: 'Deep learning pipeline for restoring degraded underwater images using Residual Networks with Efficient Channel Attention.',
     problem: 'Underwater images suffer from low contrast, blur, and color distortion due to light scattering.',
@@ -70,7 +70,7 @@ const ProjectsSection = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-3"
           >
-            <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-primary">04 — Projects</span>
+            <span className="text-sm font-medium uppercase tracking-[0.2em] text-primary">04 — Projects</span>
             <div className="editorial-line mt-4" />
           </motion.div>
           <motion.div
@@ -80,7 +80,7 @@ const ProjectsSection = () => {
             className="lg:col-span-9"
           >
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-              Selected <span className="gradient-text">Work</span>
+              Engineering <span className="gradient-text">Projects</span>
             </h2>
           </motion.div>
         </div>

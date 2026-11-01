@@ -12,7 +12,7 @@ const education = [
   {
     institution: 'Sri Chaitanya Junior Kalasala',
     degree: 'Intermediate — Science (MPC)',
-    grade: 'Marks: 958',
+    grade: 'Percentage: 95.8%',
     duration: 'June 2021',
     location: 'Hyderabad, Telangana',
   },
@@ -26,6 +26,8 @@ const education = [
 ];
 
 const certifications = [
+  { name: 'Claude Code in Action', issuer: 'Anthropic', period: 'May 2026' },
+  { name: 'Building with the Claude API', issuer: 'Anthropic', period: 'May 2026' },
   { name: 'AWS AI/ML Virtual Internship', issuer: 'AICTE-Eduskills', period: 'May – Jul 2023' },
   { name: 'Google AI/ML Virtual Internship', issuer: 'AICTE-Eduskills', period: 'Apr – Jun 2024' },
   { name: 'AWS Data Analytics', issuer: 'Amazon Web Services', period: 'Certification' },
@@ -47,7 +49,7 @@ const EducationSection = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-3"
           >
-            <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-primary">05 — Education</span>
+            <span className="text-sm font-medium uppercase tracking-[0.2em] text-primary">05 — Education</span>
             <div className="editorial-line mt-4" />
           </motion.div>
 

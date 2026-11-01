@@ -19,7 +19,7 @@ const HeroSection = () => {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="mb-6"
             >
-              <span className="inline-block text-[13px] font-medium uppercase tracking-[0.2em] text-primary mb-8">
+              <span className="inline-block text-base font-medium uppercase tracking-[0.2em] text-primary mb-8">
                 Software Engineer — i95Dev
               </span>
             </motion.div>
@@ -41,8 +41,7 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed mb-10"
             >
-              Building scalable eCommerce & ERP integrations, Shopify B2B platforms, 
-              and AI-driven automation — turning complex business logic into elegant software.
+              Engineering robust backend systems, AI/ML pipelines, and scalable integrations — crafting efficient, data-driven solutions that power real-world business platforms.
             </motion.p>
 
             <motion.div
@@ -55,7 +54,7 @@ const HeroSection = () => {
                 href="#projects"
                 className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-300"
               >
-                Selected Work
+                View Projects
               </a>
               <a
                 href="#contact"
@@ -79,7 +78,7 @@ const HeroSection = () => {
             </div>
             <div>
               <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground mb-2">Focus</p>
-              <p className="text-sm text-foreground">eCommerce · AI · Full Stack</p>
+              <p className="text-sm text-foreground">Backend · AI/ML · eCommerce & ERP</p>
             </div>
             <div className="flex items-center gap-4">
               <a href="https://github.com/Abhinavkavuluru" target="_blank" rel="noopener noreferrer"

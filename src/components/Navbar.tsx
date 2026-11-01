@@ -36,7 +36,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="#" className="font-heading text-lg font-bold tracking-tight text-foreground">
-            AK<span className="text-primary">.</span>
+            Abhinav<span className="text-primary">.</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -62,7 +62,7 @@ const Navbar = () => {
               {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
             <a
-              href="/Abhinav_Resume.pdf"
+              href="/Kavuluru_Abhinav_Resume.pdf"
               download
               className="inline-flex items-center gap-2 px-5 py-2.5 text-[13px] font-medium uppercase tracking-[0.1em] bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-300"
             >
@@ -109,7 +109,7 @@ const Navbar = () => {
                   {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
                 </button>
                 <a
-                  href="/Abhinav_Resume.pdf"
+                  href="/Kavuluru_Abhinav_Resume.pdf"
                   download
                   className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium bg-primary text-primary-foreground ml-auto"
                 >

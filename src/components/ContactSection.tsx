@@ -19,7 +19,7 @@ const ContactSection = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-3"
           >
-            <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-primary">06 — Contact</span>
+            <span className="text-sm font-medium uppercase tracking-[0.2em] text-primary">06 — Contact</span>
             <div className="editorial-line mt-4" />
           </motion.div>
 
@@ -104,7 +104,7 @@ const ContactSection = () => {
                 Send Email
               </a>
               <a
-                href="/Abhinav_Resume.pdf"
+                href="/Kavuluru_Abhinav_Resume.pdf"
                 download
                 className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium border border-border text-foreground hover:border-primary hover:text-primary transition-colors duration-300"
               >
